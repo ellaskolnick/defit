@@ -1,0 +1,9 @@
+<%= simple_form_for(@product) do |a| %>
+  <%= a.input :name %>
+  <%= a.input :location %>
+  <%= a.input :description %>
+  <%= a.input :price %>
+  <%= a.input :size %>
+  <%= a.input :category, collection: Product::CATEGORIES %>
+  <%= a.submit %>
+<% end %>
