@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_product, only: [:index, :new, :create]
-  before_action :set_booking, only:  [:edit, :update, :destroy]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
-    @booking = Booking.all
+    @bookings = Booking.where(user: current_user)
+    @products_bookings = Booking.select { |booking| booking.product.user }
   end
 
   def new
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @product, notice: 'You have rented this item!'
     else
-      render :new
+      render 'products/show'
     end
   end
 
@@ -30,7 +31,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root
+    redirect_to bookings_path
   end
 
   private
