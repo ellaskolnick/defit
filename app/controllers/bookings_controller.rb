@@ -1,12 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_product, only: [:index, :show, :new, :create]
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:index, :new, :create]
+  before_action :set_booking, only:  [:edit, :update, :destroy]
 
   def index
     @booking = Booking.all
-  end
-
-  def show
   end
 
   def new
