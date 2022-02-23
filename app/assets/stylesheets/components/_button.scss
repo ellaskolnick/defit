@@ -1,0 +1,10 @@
+.btn-primary{
+    background-color: $mint-green;
+    border-radius: 5px;
+    border-color: transparent;
+    color: grey;
+}
+.btn-primary:hover {
+    background-color: rgb(139, 160, 139);
+    border-color: transparent;
+}
