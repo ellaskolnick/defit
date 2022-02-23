@@ -1,7 +1,21 @@
 <div class="container">
   <h1>Products</h1>
 
-  <% @products.each do |product| %>
-   <li><%= product.name %> - <%= product.price %></li>
-  <% end %>
+  <div class="cards">
+    <% @products.each do |product| %>
+      <%= link_to product_path(product.id) do %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt=<%= product.name %>>
+          <div class="card-product-infos">
+            <div>
+              <h2><%= product.name %></h2>
+              <p><%= product.description %></p>
+              <p><%= product.location %></p>
+            </div>
+            <h3><%= product.price %></h3>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
