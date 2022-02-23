@@ -14,9 +14,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new
-    if @product.save
-      redirect_to @product, notice: 'Product Posted!'
+    @user = current_user
+    @product = Product.new(product_params)
+    if @product.save!
+      redirect_to product_path(@product), notice: 'Product Posted!'
     else
       render :new
     end
@@ -38,7 +39,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :location, :description, :price, :size)
+    params.require(:product).permit(:name, :location, :description, :price, :size, :category, user: current_user)
   end
 
   def set_product
