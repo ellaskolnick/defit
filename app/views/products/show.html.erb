@@ -26,8 +26,8 @@
       <%= simple_form_for [@product, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.button :submit%>
-    <% end %>
+        <%= f.button :submit, class: "page-btn" %>
+      <% end %>
     </div>
   </div>
   <%= link_to 'Back', products_path, class: "page-btn" %>
