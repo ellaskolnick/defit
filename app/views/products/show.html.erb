@@ -13,6 +13,10 @@
         <h6><strong>Size:</strong> <%= @product.size %></h6>
       <% end %>
       <br>
+      <%# <% if @user == current_user %>
+        <%= link_to 'Edit', edit_product_path(@product.id), class: "page-btn" %>
+      <%# <% end %>
+      <br>
       <div class="d-flex justify-content-end">
         <h5><strong>Price:</strong> £<%= @product.price %></h5>
       </div>
@@ -26,5 +30,5 @@
     <% end %>
     </div>
   </div>
-  <%= link_to 'Back', products_path, class: "button" %>
+  <%= link_to 'Back', products_path, class: "page-btn" %>
 </div>

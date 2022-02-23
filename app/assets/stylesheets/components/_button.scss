@@ -8,3 +8,19 @@
     background-color: rgb(139, 160, 139);
     border-color: transparent;
 }
+
+.page-btn {
+    background-color: rgb(139, 160, 139);
+    border-radius: 5px;
+    border-color: transparent;
+    padding: 10px;
+    color: white;
+    &:hover {
+      color: white;
+      background-color: rgb(164, 191, 164);
+    }
+}
+
+a {
+  text-decoration: none;
+}
