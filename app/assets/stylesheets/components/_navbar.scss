@@ -11,3 +11,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-logo {
+ justify-content: space-between;
+ display:flex;
+ align-items: center;
+ h4{
+   color:  rgb(139, 160, 139);
+   margin-left: 5px;
+ }
+}
