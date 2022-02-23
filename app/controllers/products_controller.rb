@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @product = Product.new(product_params)
+    @product.user = current_user
     if @product.save!
       redirect_to product_path(@product), notice: 'Product Posted!'
     else
