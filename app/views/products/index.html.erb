@@ -1,6 +1,7 @@
 <div class="container">
 
-  <h2>results for:</h2>
+  <h3 class="m-5 mb-2 text-center fw-bolder">Results For:</h2>
+  <h4 class="text-center">"..."</h4>
 
   <div class="cards mt-4">
     <% @products.each do |product| %>
@@ -13,7 +14,12 @@
               <p><%= product.description.truncate(40) %></p>
               <p><%= product.location %></p>
             </div>
-            <h3><%= product.price %></h3>
+            <div>
+              <h3>£<%= product.price %></h3>
+              <%# <div class="justify-content-end">
+                 <i class="fa-solid fa-heart mt-3"></i>
+              </div> %>
+            </div>
           </div>
         </div>
       <% end %>
