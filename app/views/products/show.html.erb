@@ -5,7 +5,7 @@
     <div class="show show-product">
 
       <div>
-        <%= image_tag "weights.webp", class: "main-img" %>
+        <%= cl_image_tag @product.photo.key, height: 300px, width: 400px , crop: :fill, class: "main-img" %> 
       </div>
       <div class="m-0 ms-3 postion-relative darkgreen-color">
         <h2 class="m-0 fw-bolder"><%= @product.name %></h2>
@@ -26,6 +26,7 @@
         <div class="d-flex justify-content-end">
           <h5><strong>Price:</strong> £<%= @product.price %></h5>
         </div>
+
       </div>
     </div>
      <%= link_to 'Back', products_path, class: "page-btn" %>

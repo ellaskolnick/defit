@@ -11,20 +11,45 @@
 # Product.create!(name: "Ski Jacket", location: "France", description: "Rent a ski jacket", price: "40", category: "Clothing", user: ella)
 
 require 'faker'
+require "open-uri"
+ puts "cleaning database"
+ Product.destroy_all
+ User.destroy_all
+ puts "creating products"
 
 CATEGORIES = %w[Equipment Clothing]
-Product.destroy_all
-User.destroy_all
-ella = User.create!(username: "ella", email: "ella@email.com", password: "password")
+user1 = User.new(email: "molka@email.com", password: "123456")
 
-15.times do
-  product = Product.new(
-    name: Faker::Commerce.product_name,
-    location: Faker::Address.city,
-    description: Faker::Lorem.paragraph,
-    price: rand(10..100),
-    category: CATEGORIES.sample,
-    user: ella
-  )
-  product.save!
-end
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+product = Product.new(
+  name: Faker::Commerce.product_name,
+  location: Faker::Address.city,
+  description: Faker::Lorem.paragraph,
+  price: rand(10..100),
+  category: CATEGORIES.sample,
+  user: user1
+)
+product.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+product.save!
+
+
+
+
+
+
+
+
+
+
+puts "done"
+
+# 15.times do
+#   product = Product.new(
+#     name: Faker::Commerce.product_name,
+#     location: Faker::Address.city,
+#     description: Faker::Lorem.paragraph,
+#     price: rand(10..100),
+#     category: CATEGORIES.sample,
+#     user: ella
+#   )
+# end
