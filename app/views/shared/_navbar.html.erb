@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
        <ul class="navbar-logo">
-          <%= image_tag "defitLogo" %>
+          <%= image_tag "defitLogo.png" %>
           <h4 class= "mb-0"> DeFit </h4>
         </ul>
     <% end %>
@@ -30,7 +30,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "loginLogo", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "loginLogo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My rentals", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Post listing",  new_product_path, class: "dropdown-item" %>
