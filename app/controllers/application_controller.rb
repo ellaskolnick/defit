@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  # def search
+  #   if params[:search_query].present?
+  #     @products = Product.where("name ILIKE ? or category ILIKE ?", "%#{params[:search_query]}%", "%#{params[:search_query]}%")
+  #     redirect_to products_path(@products)
+  #   else
+  #     @products = Product.all
+  #   end
+  # end
+
   protected
 
   def configure_permitted_parameters

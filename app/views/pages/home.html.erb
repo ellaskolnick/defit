@@ -1,22 +1,15 @@
 
     <!-- Banner -->
-
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1595909315417-2edd382a56dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BvcnRzJTIwZXF1aXBtZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60);">
-        <h1>DeFit</h1>
-          <h4>The social network to rent sports gear and clothes wherever you are.</h4>
-            <p>Join DeFit to rent your favourite sports equipement and apparel for great prices everywhere you go </p>
-        <%= link_to "Products", products_path, class: "page-btn" %>
-      </div>
-
-
+      <%= render "shared/banner" %>
 
       <!-- Container -->
       <%# ALTERNATIVE: <div class="container home banner"> %>
       <div class="container">
-        <h2>Select a category</h2>
+        <h2 class="text-center">Select a category</h2>
+        <br>
         <br>
 
-        <div class="cards">
+        <div class="cards home-cards">
           <div id="card-apparel" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1607429866125-a763894fd447?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)">
             Apparel
           </div>

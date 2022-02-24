@@ -1,28 +1,37 @@
 <div class="container">
 
-  <h3 class="m-5 mb-2 text-center fw-bolder">Results For:</h2>
-  <h4 class="text-center">"..."</h4>
-
-  <div class="cards mt-4">
-    <% @products.each do |product| %>
-      <%= link_to product_path(product.id) do %>
-        <div class="card-product">
-          <%= image_tag "weights.webp", class: "main-img" %>
-          <div class="card-product-infos">
-            <div>
-              <h2><%= product.name %></h2>
-              <p><%= product.description.truncate(40) %></p>
-              <p><%= product.location %></p>
-            </div>
-            <div>
-              <h3>£<%= product.price %></h3>
-              <%# <div class="justify-content-end">
-                 <i class="fa-solid fa-heart mt-3"></i>
-              </div> %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div class="darkgreen-color">
+    <% if params[:search_query].present? %>
+      <h3 class="m-5 mb-2 text-center fw-bolder">Results For:</h2>
+      <h4 class="text-center"><%= params[:search_query] %></h4>
+    <% else %>
+      <h3 class="m-5 mb-2 text-center fw-bolder">All Products</h2>
     <% end %>
   </div>
+    <div class="cards index-cards mt-4">
+      <% @products.each do |product| %>
+        <%= link_to product_path(product.id) do %>
+          <div class="card-product">
+            <%= image_tag "weights.webp", class: "main-img" %>
+            <div class="card-product-infos index-card-product-infos py-0">
+              <div class="align-self-start">
+                <h2><%= product.name %></h2>
+                <p class="pt-1"><strong>Category: </strong><%= product.category %></p>
+                <% if product.size? %>
+                  <p><strong>Size: </strong><%= product.size %></p>
+                <% end %>
+                <p><strong>Location: </strong><%= product.location %></p>
+              </div>
+              <div class="align-self-end">
+                <h3>£<%= product.price %></h3>
+                <%# <div class="justify-content-end">
+                  <i class="fa-solid fa-heart mt-3"></i>
+                </div> %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
 </div>
