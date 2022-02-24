@@ -12,9 +12,9 @@
       <% @products.each do |product| %>
         <%= link_to product_path(product.id) do %>
           <div class="card-product">
-            <%# <% if product.photo %>
+            <% if product.photo %>
               <%= cl_image_tag product.photo.key, height: 200, width: 200, crop: :fill, class: "main-img" %>
-            <%# <% end %>
+             <% end %>
             <div class="card-product-infos index-card-product-infos py-0">
               <div class="align-self-start">
                 <h2><%= product.name %></h2>
@@ -37,7 +37,7 @@
 
 
   <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
+    data-controller=rails "mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
