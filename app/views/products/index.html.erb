@@ -12,7 +12,9 @@
       <% @products.each do |product| %>
         <%= link_to product_path(product.id) do %>
           <div class="card-product">
-            <%= cl_image_tag @product.photo.key, height: 200px, width: 200px , crop: :fill, , class: "main-img" %>
+            <%# <% if product.photo %>
+              <%= cl_image_tag product.photo.key, height: 200, width: 200, crop: :fill, class: "main-img" %>
+            <%# <% end %>
             <div class="card-product-infos index-card-product-infos py-0">
               <div class="align-self-start">
                 <h2><%= product.name %></h2>

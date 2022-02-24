@@ -5,7 +5,9 @@
     <div class="show show-product">
 
       <div>
-        <%= cl_image_tag @product.photo.key, height: 300px, width: 400px , crop: :fill, class: "main-img" %> 
+        <% if @product.photo.attached? %>
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class: "main-img" %>
+        <% end %>
       </div>
       <div class="m-0 ms-3 postion-relative darkgreen-color">
         <h2 class="m-0 fw-bolder"><%= @product.name %></h2>

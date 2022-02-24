@@ -3,18 +3,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    # if params[:query].present?
-    #   # Product.search_by_name_and_category_and_size(params[:query])
-    #   @results = PgSearch.multisearch
-    # else
-      # @products = Product.all
-    # end
-    # if params[:search_query].present?
-    #   @products = Product.where("name ILIKE ? or category ILIKE ?", "%#{params[:search_query]}%", "%#{params[:search_query]}%")
-    #   redirect_to products_path(@products)
-    # elsif
-    #   @products = Product.all
-    # end
     @products = Product.where("name ILIKE ? or category ILIKE ?",
       "%#{params[:search_query]}%", "%#{params[:search_query]}%")
   end
@@ -53,7 +41,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :location, :description, :price, :size, :category, user: current_user, :photo)
+    params.require(:product).permit(:name, :location, :description, :price, :size, :category, :photo, user: current_user)
   end
 
   def set_product
