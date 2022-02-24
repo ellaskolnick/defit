@@ -5,6 +5,13 @@ class ProductsController < ApplicationController
   def index
     @products = Product.where("name ILIKE ? or category ILIKE ?",
       "%#{params[:search_query]}%", "%#{params[:search_query]}%")
+    
+    @markers = @products.geocoded.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
   end
 
   def show
