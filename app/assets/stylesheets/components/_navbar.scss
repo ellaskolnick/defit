@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: $darker-mint;
   margin-top: 0px;
 }
 
@@ -17,7 +17,13 @@
  display:flex;
  align-items: center;
  h4{
-   color:  rgb(139, 160, 139);
+   color:  white;
    margin-left: 5px;
+   font-weight: bold;
  }
+}
+
+
+.white-link {
+  color: white !important;
 }

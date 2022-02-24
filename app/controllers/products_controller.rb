@@ -1,9 +1,22 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show] #TBDeleted
+  # skip_before_action :authenticate_user!, only: [:index, :show] #TBDeleted
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    # if params[:query].present?
+    #   # Product.search_by_name_and_category_and_size(params[:query])
+    #   @results = PgSearch.multisearch
+    # else
+      # @products = Product.all
+    # end
+    # if params[:search_query].present?
+    #   @products = Product.where("name ILIKE ? or category ILIKE ?", "%#{params[:search_query]}%", "%#{params[:search_query]}%")
+    #   redirect_to products_path(@products)
+    # elsif
+    #   @products = Product.all
+    # end
+    @products = Product.where("name ILIKE ? or category ILIKE ?",
+      "%#{params[:search_query]}%", "%#{params[:search_query]}%")
   end
 
   def show
