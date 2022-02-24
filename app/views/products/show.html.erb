@@ -1,7 +1,8 @@
 <div class="container">
   <div class="show">
     <div>
-      <%= image_tag "weights.webp", class: "main-img" %>
+      <%= cl_image_tag @product.photo.key, height: 300px, width: 400px , crop: :fill, class: "main-img" %> 
+      <%# <%= image_tag "weights.webp", class: "main-img" %> 
     </div>
     <div class="m-0 ms-3 postion-relative">
       <h2 class="m-0 fw-bolder"><%= @product.name %></h2>

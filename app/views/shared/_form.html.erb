@@ -5,5 +5,6 @@
   <%= f.input :price %>
   <%= f.input :size %>
   <%= f.input :category, collection: Product::CATEGORIES %>
+   <%= f.input :photo, as: :file %>
   <%= f.submit class: "page-btn" %>
 <% end %>
