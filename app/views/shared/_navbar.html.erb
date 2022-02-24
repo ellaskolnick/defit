@@ -1,37 +1,26 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-       <ul class="navbar-logo">
-          <%= image_tag "defitLogo" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+       <ul class="navbar-logo mb-0 ms-5 p-2">
+          <%= image_tag "defitLogo.png" %>
           <h4 class= "mb-0"> DeFit </h4>
         </ul>
     <% end %>
-
-  <div class = nav-search>
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-primary">
-      <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
-   </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-5">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link white-link" %>
           </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "loginLogo", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= image_tag "loginLogo.png", class: "avatar dropdown-toggle  m-0", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end  m-0" aria-labelledby="navbarDropdown">
               <%= link_to "My rentals", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Post listing",  new_product_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
