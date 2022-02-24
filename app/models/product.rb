@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  CATEGORIES = %w[Equipment Clothing].freeze
+
+  has_one_attached :photo
+
+  CATEGORIES = %w[Equipment Clothing Kids].freeze
+
   validates :name, presence: true
   validates :price, presence: true
   validates :location, presence: true

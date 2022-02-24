@@ -1,34 +1,48 @@
-<div class="container">
+<div>
   <div class="show">
-    <div>
-      <%= image_tag "weights.webp", class: "main-img" %>
-    </div>
-    <div class="m-0 ms-3 postion-relative">
-      <h2 class="m-0 fw-bolder"><%= @product.name %></h2>
-      <br>
-      <h6><strong>Description:</strong> <%= @product.description %></h6>
-      <h6><strong>Location:</strong> <%= @product.location %></h6>
-      <h6><strong>Category:</strong> <%= @product.category %></h6>
-      <% if @product.category == "Clothing" %>
-        <h6><strong>Size:</strong> <%= @product.size %></h6>
-      <% end %>
-      <br>
-      <%# <% if @user == current_user %>
-        <%= link_to 'Edit', edit_product_path(@product.id), class: "page-btn" %>
-      <%# <% end %>
-      <br>
-      <div class="d-flex justify-content-end">
-        <h5><strong>Price:</strong> £<%= @product.price %></h5>
+
+  <div>
+    <div class="show show-product">
+
+      <div>
+        <% if @product.photo.attached? %>
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class: "main-img" %>
+        <% end %>
+      </div>
+      <div class="m-0 ms-3 postion-relative darkgreen-color">
+        <h2 class="m-0 fw-bolder"><%= @product.name %></h2>
+        <br>
+        <h6><strong>Description:</strong> <%= @product.description %></h6>
+        <br>
+        <h6><strong>Location:</strong> <%= @product.location %></h6>
+        <br>
+        <h6><strong>Category:</strong> <%= @product.category %></h6>
+        <% if @product.category == "Clothing" %>
+          <h6><strong>Size:</strong> <%= @product.size %></h6>
+        <% end %>
+        <br>
+        <%# <% if @user == current_user %>
+          <%= link_to 'Edit', edit_product_path(@product.id), class: "darkgreen-color" %>
+        <%# <% end %>
+        <br>
+        <div class="d-flex justify-content-end">
+          <h5><strong>Price:</strong> £<%= @product.price %></h5>
+        </div>
+
       </div>
     </div>
-    <div class="rent-form">
-      <h3>Rent</h3>
-      <%= simple_form_for [@product, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.button :submit%>
-    <% end %>
+     <%= link_to 'Back', products_path, class: "page-btn" %>
+  </div>
+    <div>
+      <div class="rent-form">
+        <h3>Rent</h3>
+        <%= simple_form_for [@product, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.button :submit, class: "page-btn" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <%= link_to 'Back', products_path, class: "page-btn" %>
+
 </div>

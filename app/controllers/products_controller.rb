@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show] #TBDeleted
+  # skip_before_action :authenticate_user!, only: [:index, :show] #TBDeleted
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.where("name ILIKE ? or category ILIKE ?",
+      "%#{params[:search_query]}%", "%#{params[:search_query]}%")
+    
     @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
@@ -21,8 +23,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @product = Product.new(product_params)
+    @product.user = current_user
     if @product.save!
       redirect_to product_path(@product), notice: 'Product Posted!'
     else
@@ -46,7 +48,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :location, :description, :price, :size, :category, user: current_user)
+    params.require(:product).permit(:name, :location, :description, :price, :size, :category, :photo, user: current_user)
   end
 
   def set_product

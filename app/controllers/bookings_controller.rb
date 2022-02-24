@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @booking.product = @product
     if @booking.save!
       redirect_to product_bookings_path, notice: 'You have rented this item!'
