@@ -61,6 +61,12 @@
   grid-gap: 16px;
 }
 
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
 .home-cards {
   display: grid;
   grid-template-columns: 0.8fr 0.8fr 0.8fr;
