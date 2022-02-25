@@ -1,15 +1,35 @@
-<h1>Rentals</h1>
+<div class="container darkgreen-color">
+  <h1 class="text-center fw-bold">Rentals</h1>
 
-<h2>I'm Renting:</h2>
+  <h2>I'm Renting:</h2>
+   <br>
+    <% @bookings.each do |booking| %>
+    <div class="card-product card-booking m-0 ms-4 fw-bolder">
+      <% if booking.product.photo.attached? %>
+        <%= cl_image_tag booking.product.photo.key, height: 100, width: 100, crop: :fill, class: "main-img" %>
+      <% end %>
+      <div class="card-product-infos index-card-product-infos py-0">
+        <div class="align-self-start">
+          <h4 class="fw-bolder"><%= booking.product.name.capitalize %></h4>
+          <h2 class="fw-bolder">Booking Details:</h2>
+          <br>
+          <h2 class="fw-bolder">Booked From:</h2>
+            <h3><%= booking.start_date %></h2></h3>
+          <h2 class="fw-bolder">To:</h2>
+            <h3><%= booking.end_date %></h3>
+        </div>
+      </div>
+    </div>
+    <% end %>
 
-<% @bookings.each do |booking| %>
-  <%= booking.product.name %>
-  <%= booking.start_date %> - <%= booking.end_date %>
-<% end %>
-
-<h2>My Rentals:</h2>
-
-<% @products_bookings.each do |booking| %>
-  <%= booking.product.name %>
-  <%= booking.start_date %> - <%= booking.end_date %>
-<% end %>
+  <br>
+  <br>
+  <h2>My Rentals:</h2>
+   <br>
+  <div class="card-booking m-0 ms-4 darkgreen-color fw-bolder">
+    <% @products_bookings.each do |booking| %>
+      <%= booking.product.name %>
+      <%= booking.start_date %> - <%= booking.end_date %>
+    <% end %>
+  </div>
+</div>

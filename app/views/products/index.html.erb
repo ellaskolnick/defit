@@ -17,7 +17,7 @@
              <% end %>
             <div class="card-product-infos index-card-product-infos py-0">
               <div class="align-self-start">
-                <h2><%= product.name %></h2>
+                <h2><%= product.name.capitalize %></h2>
                 <p class="pt-1"><strong>Category: </strong><%= product.category %></p>
                 <% if product.size? %>
                   <p><strong>Size: </strong><%= product.size %></p>
@@ -25,10 +25,10 @@
                 <p><strong>Location: </strong><%= product.location %></p>
               </div>
               <div class="align-self-end">
-                <h3>£<%= product.price %></h3>
-                <%# <div class="justify-content-end">
-                  <i class="fa-solid fa-heart mt-3"></i>
-                </div> %>
+                <h3>£<%= number_with_precision(product.price, precision: 2) %></h3>
+                <div class="justify-content-end">
+                  <i class="far fa-heart mt-3"></i>
+                </div>
               </div>
             </div>
           </div>
