@@ -23,6 +23,7 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   background-color: $mint-green;
   // position: sticky;
+  // top: 50px;
 }
 
 .category-box {
@@ -33,10 +34,10 @@
   width: 1000px;
 }
 
-.sticky {
-  position: sticky;
-  top: 0;
-}
+// .stick {
+//   position: sticky;
+//   top: 50px;
+// }
 
 // .relative {
 //   position: relative;

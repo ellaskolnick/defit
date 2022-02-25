@@ -1,5 +1,19 @@
 .card-booking {
-  width: 600px;
+  width: 500px;
   background-color: $dark-mint;
   color: white;
+  margin: 0 auto;
+}
+
+.dashboard-container {
+  margin: 0 auto;
+  width: 1016px;
+}
+
+.dashboard-btn {
+  display: inline-block;
+}
+
+.btn-middle {
+  margin: 0 auto;
 }

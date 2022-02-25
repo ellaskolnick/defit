@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.product = @product
     if @booking.save!
-      redirect_to product_bookings_path, notice: 'You have rented this item!'
+      redirect_to dashboard_path, notice: 'You have rented this item!'
     else
       render 'products/show'
     end
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
