@@ -10,7 +10,9 @@ An AirBnB clone marketplace to sell and rent gym apparel and equipment. Complete
 
 ## Collaborators 
 
-## [Molka Meziou](https://github.com/Molka1)
+### [Ella Skolnick](https://github.com/ellaskolnick)
 
-## [Andrea Terminel](https://github.com/AAATL)
+### [Molka Meziou](https://github.com/Molka1)
+
+### [Andrea Terminel](https://github.com/AAATL)
 
